@@ -1,0 +1,16 @@
+{
+  "name": "statuspage-pinger",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "once": "node src/index.js --once",
+    "components": "node src/index.js --components",
+    "test-call": "node src/index.js --test-call",
+    "diagnose": "node scripts/diagnose-call.mjs",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}

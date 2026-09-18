@@ -1,0 +1,27 @@
+[Unit]
+Description=Statuspage Pinger
+Documentation=file:///srv/statuspage/README.md
+After=network-online.target asterisk.service
+Wants=network-online.target asterisk.service
+
+[Service]
+Type=simple
+WorkingDirectory=/srv/statuspage
+ExecStart=/usr/bin/node src/index.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=statuspage-pinger
+
+# Hardening. The pinger needs outbound network (HTTP checks), its own data
+# directory, read access to piper, and the AMI socket on 127.0.0.1. Asterisk
+# itself carries the SIP and RTP traffic, in its own unit.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/srv/statuspage/data
+
+[Install]
+WantedBy=multi-user.target
