@@ -58,9 +58,9 @@ rm -f /tmp/piper-selftest.wav
 asterisk -V
 
 echo
-echo "Fertig. asterisk: $(command -v asterisk), piper: $PIPER_DIR/piper"
+echo "Done. asterisk: $(command -v asterisk), piper: $PIPER_DIR/piper"
 echo
-echo "Asterisk ist installiert, laeuft aber noch NICHT. Naechste Schritte:"
-echo "  1. /etc/asterisk konfigurieren — README.md, Abschnitt \"Asterisk\""
+echo "Asterisk is installed but NOT running yet. Next steps:"
+echo "  1. Configure /etc/asterisk — see README.md, section \"Asterisk\""
 echo "  2. sudo systemctl start asterisk"
-echo "  3. SIP-Zugangsdaten in .env / pjsip.conf eintragen, dann: npm run test-call"
+echo "  3. Set SIP_URI and CALL_TARGET in .env, the SIP password in pjsip.conf, then: npm run test-call"
